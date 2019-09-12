@@ -5,19 +5,27 @@ using namespace std;
 struct Q{
 private:
     int q[100];
-    int first, last, size;
+    int first, last;
+
+    int next(int value){
+        if (value + 1 > 100)
+            return 0;
+        return value + 1;
+    }
 
 public:
+
+    Q(){
+        first = last = 0;
+    }
     void push(int n){
         q[last] = n;
-        last++;
-        size++;
+        last = next(last);
     }
 
     int pop(){
         int value = q[first];
-        first++;
-        size--;
+        first = next(first);
         return value;
     }
 
@@ -26,18 +34,14 @@ public:
     }
 
     int getSize(){
-        return size;
-    }
-
-    void clear(){
-        first = last = size = 0;
-        q[0] = 0;   
-    }
+        if (last < first)
+            return last + 100 - first;
+        return last - first;
+    }    
 };
 
 int main(){
     Q q;
-    q.clear();
     string input;
     while (true){
         cin >> input;
@@ -57,7 +61,7 @@ int main(){
             cout << q.getSize() << endl;
         }
         else if(input == "clear"){
-            q.clear();
+            Q q;
             cout << "ok" << endl;
         }
         else if(input == "front"){
