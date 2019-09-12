@@ -24,9 +24,11 @@ public:
     }
 
     int pop(){
-        int value = q[first];
-        first = next(first);
-        return value;
+        if(getSize != 0){
+            int value = q[first];
+            first = next(first);
+            return value;
+        }
     }
 
     int front(){
