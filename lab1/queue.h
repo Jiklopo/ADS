@@ -24,7 +24,7 @@ public:
     }
 
     int pop(){
-        if(getSize != 0){
+        if(getSize() != 0){
             int value = q[first];
             first = next(first);
             return value;

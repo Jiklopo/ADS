@@ -1,4 +1,4 @@
-#include <queue.h>
+#include "queue.h"
 
 int main(){
     Q q;
@@ -21,7 +21,7 @@ int main(){
             cout << q.getSize() << endl;
         }
         else if(input == "clear"){
-            Q q;
+            q = Q();
             cout << "ok" << endl;
         }
         else if(input == "front"){

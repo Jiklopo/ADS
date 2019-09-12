@@ -1,41 +1,33 @@
-#include <iostream>
-
+#include "stack.h"
 using namespace std;
-
-struct Stack{
-    private:
-        int stack[100];
-        int last;
-
-
-    public:
-        Stack(){    
-            last = 0;
-        }
-
-        void push(int a){
-            stack[last] = a;
-            last++;
-        }
-
-        int pop(){
-            int value = stack[last];
-            last--;
-            return value;
-        }
-
-        int front(){
-            return stack[last];
-        }
-};
 
 int main(){
     Stack stack;
-    for(int i = 0; i < 10; i++){
-        stack.push(i);
+    string s;
+    while (true){
+        cin >> s;
+        if(s == "exit"){
+            cout << "bye";
+            break;
+        }
+        else if(s == "push"){
+            int value;
+            cin >> value;
+            stack.push(value);
+            cout << "ok" << endl;
+        }
+        else if(s == "pop"){
+            cout << stack.pop() << endl;
+        }
+        else if(s == "back"){
+            cout << stack.back() << endl;
+        }
+        else if(s == "size"){
+            cout << stack.size() << endl;
+        }
+        else if(s == "clear"){
+            stack = Stack();
+            cout << "ok" << endl;
+        }
     }
-    for(int i = 0; i < 10; i++){
-        cout << stack.pop() << endl;
-    }
-    return 0;
 }
