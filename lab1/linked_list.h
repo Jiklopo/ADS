@@ -1,16 +1,13 @@
+#include <iostream>
 struct SingleNode
 {
     public:
         int value;
         SingleNode * next;
 
-        SingleNode(){
-            value = 0;
-            next = nullptr;
-        }
-
         SingleNode(int val){
             value = val;
+            next = NULL;
         }
 };
 
@@ -21,13 +18,15 @@ struct DoubleNode
         DoubleNode * next;
         DoubleNode * prev;
 
-        DoubleNode(){
+        DoubleNode()
+        {
             value = 0;
-            next = nullptr;
-            prev = nullptr;
+            next = NULL;
+            prev = NULL;
         }
 
-        DoubleNode(int val){
+        DoubleNode(int val)
+        {
             value = val;
         }
 };
