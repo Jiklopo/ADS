@@ -25,16 +25,20 @@ void insert(int x, TreeNode* &root) {
 	else insert(x, root -> right);
 }
 
-TreeNode* invertTree(TreeNode* root) 
-    {
-        
+TreeNode* invertTree(TreeNode* root) {
+	if(root == NULL)
+		return NULL;
+	swap(root-> left, root ->right);
+	invertTree(root->left);
+	invertTree(root->right);
+	return root;
     }
 
 void Order(TreeNode * root) {
 	if (root == NULL) return;
-	Order(root -> right);
-	printf("%d\n", root -> val);
 	Order(root -> left);
+	printf("%d\n", root -> val);
+	Order(root -> right);
 }
 
 int main() {
