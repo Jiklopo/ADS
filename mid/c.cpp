@@ -25,12 +25,12 @@ void insert(int x, TreeNode* &root) {
 	else insert(x, root -> right);
 }
 
-TreeNode* invertTree(TreeNode* root) {
+TreeNode* invertTree(TreeNode* root) {//needed to write this function
 	if(root == NULL)
 		return NULL;
-	swap(root-> left, root ->right);
-	invertTree(root->left);
-	invertTree(root->right);
+	swap(root-> left, root ->right);//swap left and right sons
+	invertTree(root->left);//then go to the sons
+	invertTree(root->right);// and make the same operation for them
 	return root;
     }
 
