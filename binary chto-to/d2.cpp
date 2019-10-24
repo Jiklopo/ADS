@@ -6,7 +6,7 @@ int n;
 
 int find_first(int x)
 {
-    int l = 1, r = n;
+    int l = 0, r = n;
     if(a[l] == x)
         return l;
     while(r - l > 1)
